@@ -1,4 +1,4 @@
-package com.ganbing518.trace.thread;
+package com.ganbing518.trace.thread.executor;
 
 import org.springframework.core.task.TaskDecorator;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

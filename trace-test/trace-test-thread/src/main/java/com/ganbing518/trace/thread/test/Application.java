@@ -2,7 +2,7 @@ package com.ganbing518.trace.thread.test;
 
 import com.ganbing518.trace.common.log.context.TraceContext;
 import com.ganbing518.trace.common.log.util.TraceUtils;
-import com.ganbing518.trace.thread.TraceThreadPoolTaskExecutor;
+import com.ganbing518.trace.thread.executor.TraceThreadPoolTaskExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

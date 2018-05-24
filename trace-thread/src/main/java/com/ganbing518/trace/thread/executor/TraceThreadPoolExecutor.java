@@ -1,6 +1,7 @@
-package com.ganbing518.trace.thread;
+package com.ganbing518.trace.thread.executor;
 
 import com.ganbing518.trace.common.log.context.TraceContext;
+import com.ganbing518.trace.thread.util.WrapUtils;
 
 import java.util.concurrent.*;
 
@@ -47,19 +48,10 @@ public class TraceThreadPoolExecutor extends ThreadPoolExecutor {
 
     @Override
     public void execute(Runnable command) {
-        super.execute(newTaskFor(command, TraceContext.getTraceId()));
+        super.execute(WrapUtils.wrapRunnable(command, TraceContext.getTraceId()));
     }
 
-    private Runnable newTaskFor(Runnable command, final String traceId){
-        return () -> {
-            TraceContext.setTraceId(traceId);
-            try {
-                command.run();
-            }finally {
-                TraceContext.clear();
-            }
-        };
-    }
+
 
     @Override
     protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {

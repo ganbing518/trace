@@ -1,4 +1,4 @@
-package com.ganbing518.trace.test.provider;
+package com.ganbing518.trace.test.dubbo.provider;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

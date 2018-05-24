@@ -1,4 +1,4 @@
-package com.ganbing518.trace.thread.test;
+package com.ganbing518.trace.test.thread;
 
 import com.ganbing518.trace.common.log.context.TraceContext;
 import com.ganbing518.trace.common.log.util.TraceUtils;

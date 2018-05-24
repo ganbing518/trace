@@ -1,6 +1,6 @@
-package com.ganbing518.trace.test.provider.impl;
+package com.ganbing518.trace.test.dubbo.provider.impl;
 
-import com.ganbing518.trace.test.api.DemoService;
+import com.ganbing518.trace.test.dubbo.api.DemoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

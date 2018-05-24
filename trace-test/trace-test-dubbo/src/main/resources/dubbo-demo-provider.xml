@@ -31,9 +31,9 @@ limitations under the License.
     <dubbo:protocol name="dubbo" port="20881"/>
 
     <!-- service implementation, as same as regular local bean -->
-    <bean id="demoService" class="com.ganbing518.trace.test.provider.impl.DemoServiceImpl"/>
+    <bean id="demoService" class="com.ganbing518.trace.test.dubbo.provider.impl.DemoServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
-    <dubbo:service interface="com.ganbing518.trace.test.api.DemoService" ref="demoService"/>
+    <dubbo:service interface="com.ganbing518.trace.test.dubbo.api.DemoService" ref="demoService"/>
 
 </beans>

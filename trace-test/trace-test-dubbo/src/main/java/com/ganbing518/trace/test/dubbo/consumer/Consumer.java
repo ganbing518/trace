@@ -1,8 +1,8 @@
-package com.ganbing518.trace.test.consumer;
+package com.ganbing518.trace.test.dubbo.consumer;
 
 import com.ganbing518.trace.common.log.context.TraceContext;
 import com.ganbing518.trace.common.log.util.TraceUtils;
-import com.ganbing518.trace.test.api.DemoService;
+import com.ganbing518.trace.test.dubbo.api.DemoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

@@ -1,4 +1,4 @@
-package com.ganbing518.trace.test.api;
+package com.ganbing518.trace.test.dubbo.api;
 
 /**
  * Description:

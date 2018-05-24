@@ -1,0 +1,2 @@
+ProviderTranceFilter=com.ganbing518.trace.dubbo.filter.ProviderTraceFilter
+ConsumeTraceFilter=com.ganbing518.trace.dubbo.filter.ConsumerTraceFilter

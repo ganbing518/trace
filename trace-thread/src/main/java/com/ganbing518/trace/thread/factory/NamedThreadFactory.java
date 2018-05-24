@@ -16,19 +16,13 @@
  */
 package com.ganbing518.trace.thread.factory;
 
-import com.ganbing518.trace.common.log.context.TraceContext;
-import com.ganbing518.trace.common.log.util.TraceUtils;
-import com.ganbing518.trace.thread.TraceThread;
-import com.ganbing518.trace.thread.util.WrapUtils;
-import org.springframework.util.StringUtils;
-
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * InternalThreadFactory.
  */
-public class NamedTraceThreadFactory implements ThreadFactory {
+public class NamedThreadFactory implements ThreadFactory {
     private static final AtomicInteger POOL_SEQ_NUM = new AtomicInteger(1);
 
     private final AtomicInteger threadNum = new AtomicInteger(1);
@@ -39,15 +33,15 @@ public class NamedTraceThreadFactory implements ThreadFactory {
 
     private final ThreadGroup group;
 
-    public NamedTraceThreadFactory() {
+    public NamedThreadFactory() {
         this("pool-" + POOL_SEQ_NUM.getAndIncrement(), false);
     }
 
-    public NamedTraceThreadFactory(String prefix) {
+    public NamedThreadFactory(String prefix) {
         this(prefix, false);
     }
 
-    public NamedTraceThreadFactory(String prefix, boolean daemon) {
+    public NamedThreadFactory(String prefix, boolean daemon) {
         namePrefix = prefix + "-thread-";
         this.daemon = daemon;
         SecurityManager s = System.getSecurityManager();
@@ -57,11 +51,7 @@ public class NamedTraceThreadFactory implements ThreadFactory {
     @Override
     public Thread newThread(Runnable runnable) {
         String name = namePrefix + threadNum.getAndIncrement() + "#";
-        String traceId = TraceContext.getTraceId();
-        if (StringUtils.isEmpty(traceId)) {
-            traceId = TraceUtils.newTraceId();
-        }
-        Thread t = new TraceThread(group, WrapUtils.wrapRunnable(runnable, TraceContext.getTraceId()), name, 0);
+        Thread t = new Thread(group, runnable, name, 0);
         t.setDaemon(daemon);
         return t;
     }

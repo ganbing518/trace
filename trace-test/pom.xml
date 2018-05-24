@@ -13,6 +13,7 @@
         <module>trace-test-dubbo</module>
         <module>trace-test-web</module>
         <module>trace-test-feign</module>
+        <module>trace-test-thread</module>
     </modules>
 
     <artifactId>trace-test</artifactId>
